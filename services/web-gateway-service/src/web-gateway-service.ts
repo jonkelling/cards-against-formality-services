@@ -5,6 +5,7 @@ import { Service, ServiceBroker, Context, NodeHealthStatus, Errors } from 'molec
 import admin from 'firebase-admin';
 import HealthCheckMixin from '@cards-against-formality/health-check-mixin';
 import CacheCleaner from '@cards-against-formality/cache-clean-mixin';
+import fs from 'fs';
 
 // import serviceAccount from './auth.json';
 
