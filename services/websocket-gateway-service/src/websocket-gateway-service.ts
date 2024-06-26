@@ -7,7 +7,7 @@ import { Server } from 'socket.io';
 import admin from 'firebase-admin';
 import CacheCleaner from '@cards-against-formality/cache-clean-mixin';
 
-import serviceAccount from '/secrets/auth.json';
+import serviceAccount from '../../secrets/auth.json';
 import DefaultNamespace from './DefaultNamespace';
 import GameNamespace from './GameNamespace';
 import RoomsNamespace from './RoomsNamespace';
