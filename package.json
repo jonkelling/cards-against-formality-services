@@ -1,1 +1,18 @@
-{"name":"cards-against-formality-services","repository":"https://github.com/jonkelling/cards-against-formality-services.git","author":"Jordan Pawlett <jordanpawlett@googlemail.com>","license":"BSD-2-CLAUSE","scripts":{"add-deps":"sh ./helm/add-repos.sh","build":"skaffold build","dev":"skaffold dev"},"devDependencies":{"lerna":"^3.20.2"},"dependencies":{"skaffold-ecommerce":"^1.0.0","skaffold-auth":"^1.0.0"}}
+{
+    "name": "cards-against-formality-services",
+    "repository": "https://github.com/jonkelling/cards-against-formality-services.git",
+    "author": "Jordan Pawlett <jordanpawlett@googlemail.com>",
+    "license": "BSD-2-CLAUSE",
+    "scripts": {
+        "add-deps": "sh ./helm/add-repos.sh",
+        "build": "skaffold build",
+        "dev": "skaffold dev"
+    },
+    "devDependencies": {
+        "lerna": "^3.20.2"
+    },
+    "dependencies": {
+        "skaffold-ecommerce": "^1.0.0",
+        "skaffold-auth": "^1.0.0"
+    }
+}
