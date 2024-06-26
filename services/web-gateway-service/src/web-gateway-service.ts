@@ -6,7 +6,13 @@ import admin from 'firebase-admin';
 import HealthCheckMixin from '@cards-against-formality/health-check-mixin';
 import CacheCleaner from '@cards-against-formality/cache-clean-mixin';
 
-import serviceAccount from './auth.json';
+// import serviceAccount from './auth.json';
+
+const serviceAccountPath = process.env.GCP_SERVICE_ACCOUNT_PATH || '/secrets/auth.json';
+if (!fs.existsSync(serviceAccountPath)) {
+  throw new Error(`Service account file not found at ${serviceAccountPath}`);
+}
+const serviceAccount = require(serviceAccountPath);
 
 /**
  * WebGatewayService acts as the core gateway to access any of the internal services.
