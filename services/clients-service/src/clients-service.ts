@@ -3,7 +3,7 @@ import admin from 'firebase-admin';
 import dbMixin from '@cards-against-formality/db-mixin';
 import CacheCleaner from '@cards-against-formality/cache-clean-mixin';
 
-import serviceAccount from './auth.json';
+import serviceAccount from '/secrets/auth.json';
 
 /**
  * Interface that represents the Client object.
