@@ -47,7 +47,7 @@ export default class WebsocketGatewayService extends Service {
    */
   private admin = admin.initializeApp({
     credential: admin.credential.cert(serviceAccount as any),
-    databaseURL: 'https://cards-against-formality.firebaseio.com'
+    databaseURL: 'https://cardsah-api-default-rtdb.firebaseio.com'
   }, 'websocket-gateway');
 
   /**
