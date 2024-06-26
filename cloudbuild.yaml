@@ -87,7 +87,67 @@ steps:
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+  
+# Update Kubernetes deployments with new images
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['set', 'image', 'deployment/cards-service-deployment', 
+         'cards-service=gcr.io/$PROJECT_ID/cards-service:$COMMIT_SHA']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['set', 'image', 'deployment/clients-service-deployment', 
+         'clients-service=gcr.io/$PROJECT_ID/clients-service:$COMMIT_SHA']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['set', 'image', 'deployment/decks-service-deployment', 
+         'decks-service=gcr.io/$PROJECT_ID/decks-service:$COMMIT_SHA']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['set', 'image', 'deployment/games-service-deployment', 
+         'games-service=gcr.io/$PROJECT_ID/games-service:$COMMIT_SHA']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['set', 'image', 'deployment/nginx-deployment', 
+         'nginx=gcr.io/$PROJECT_ID/nginx:$COMMIT_SHA']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['set', 'image', 'deployment/rooms-service-deployment', 
+         'rooms-service=gcr.io/$PROJECT_ID/rooms-service:$COMMIT_SHA']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['set', 'image', 'deployment/web-gateway-service-deployment', 
+         'web-gateway-service=gcr.io/$PROJECT_ID/web-gateway-service:$COMMIT_SHA']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['set', 'image', 'deployment/websocket-gateway-service-deployment', 
+         'websocket-gateway-service=gcr.io/$PROJECT_ID/websocket-gateway-service:$COMMIT_SHA']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+
 images:
-- 'gcr.io/$PROJECT_ID/cards-against-formality:$COMMIT_SHA'
+- 'gcr.io/$PROJECT_ID/cards-service:$COMMIT_SHA'
+- 'gcr.io/$PROJECT_ID/clients-service:$COMMIT_SHA'
+- 'gcr.io/$PROJECT_ID/decks-service:$COMMIT_SHA'
+- 'gcr.io/$PROJECT_ID/games-service:$COMMIT_SHA'
+- 'gcr.io/$PROJECT_ID/nginx:$COMMIT_SHA'
+- 'gcr.io/$PROJECT_ID/rooms-service:$COMMIT_SHA'
+- 'gcr.io/$PROJECT_ID/web-gateway-service:$COMMIT_SHA'
+- 'gcr.io/$PROJECT_ID/websocket-gateway-service:$COMMIT_SHA'
+
 options:
   defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
+  logging: CLOUD_LOGGING_ONLY
