@@ -80,7 +80,7 @@ export default class WebsocketGatewayService extends Service {
             { path: '/socket', allowEIO3: true, cors: { origin: '*', methods: ['*'], allowedHeaders: ['*'] } }
           );
           // tslint:disable-next-line: max-line-length
-          this.socketServer.adapter(createAdapter({ host: process.env.REDIS_HOST, port: process.env.REDIS_PORT } as any));
+          this.socketServer.adapter(createAdapter({ host: 'redis-master.default.svc.cluster.local', port: process.env.REDIS_PORT } as any));
           new DefaultNamespace(this.socketServer.of('/'), this.broker, this.logger, this.admin);
           new RoomsNamespace(this.socketServer.of('/rooms'), this.broker, this.logger, this.admin);
           // Handles users joining a game room of roomId.

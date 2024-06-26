@@ -31,7 +31,7 @@ const broker = new ServiceBroker({
       ttl: 3600 ,
       prefix: 'CLIENTS-MOL',
       redis: {
-        host: process.env.REDIS_HOST,
+        host: 'redis-master.default.svc.cluster.local',
         port: process.env.REDIS_PORT,
       }
     }

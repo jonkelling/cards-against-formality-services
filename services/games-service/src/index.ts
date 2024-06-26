@@ -32,7 +32,7 @@ const broker = new ServiceBroker({
       prefix: 'GAMES-MOL',
       redis: {
         ttl: 3600 ,
-        host: process.env.REDIS_HOST,
+        host: 'redis-master.default.svc.cluster.local',
         port: process.env.REDIS_PORT,
       }
     }
