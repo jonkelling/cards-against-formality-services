@@ -70,3 +70,5 @@ steps:
   - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
 images:
 - 'gcr.io/$PROJECT_ID/cards-against-formality:$COMMIT_SHA'
+options:
+  defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
