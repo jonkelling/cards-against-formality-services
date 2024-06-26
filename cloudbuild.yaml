@@ -144,7 +144,7 @@ steps:
   - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['set', 'image', 'deployment/nginx-gateway', 
-         'nginx=gcr.io/$PROJECT_ID/nginx:$COMMIT_SHA']
+         'nginx=gcr.io/$PROJECT_ID/nginx-gateway:$COMMIT_SHA']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
@@ -173,7 +173,7 @@ images:
 - 'gcr.io/$PROJECT_ID/clients-service:$COMMIT_SHA'
 - 'gcr.io/$PROJECT_ID/decks-service:$COMMIT_SHA'
 - 'gcr.io/$PROJECT_ID/games-service:$COMMIT_SHA'
-- 'gcr.io/$PROJECT_ID/nginx:$COMMIT_SHA'
+- 'gcr.io/$PROJECT_ID/nginx-gateway:$COMMIT_SHA'
 - 'gcr.io/$PROJECT_ID/rooms-service:$COMMIT_SHA'
 - 'gcr.io/$PROJECT_ID/web-gateway-service:$COMMIT_SHA'
 - 'gcr.io/$PROJECT_ID/websocket-gateway-service:$COMMIT_SHA'
