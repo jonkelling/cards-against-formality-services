@@ -1,0 +1,97 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/cards-against-formality:$COMMIT_SHA', '.']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/$PROJECT_ID/cards-against-formality:$COMMIT_SHA']
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', './services/admin-gateway-service/k8s-pod.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', './services/cards-service/k8s-pod.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', './services/clients-service/k8s-pod.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', './services/decks-service/k8s-pod.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', './services/games-service/k8s-pod.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', './services/nginx/k8s-pod.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', './services/rooms-service/k8s-pod.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', './services/web-gateway-service/k8s-pod.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', './services/websocket-gateway-service/k8s-pod.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', './services/admin-gateway-service/k8s-svc.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', './services/cards-service/k8s-svc.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', './services/clients-service/k8s-svc.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', './services/decks-service/k8s-svc.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', './services/games-service/k8s-svc.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', './services/nginx/k8s-svc.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', './services/rooms-service/k8s-svc.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', './services/web-gateway-service/k8s-svc.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', './services/websocket-service/k8s-svc.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+images:
+- 'gcr.io/$PROJECT_ID/cards-against-formality:$COMMIT_SHA'
