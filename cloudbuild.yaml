@@ -143,7 +143,7 @@ steps:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
 - name: 'gcr.io/cloud-builders/kubectl'
-  args: ['set', 'image', 'deployment/nginx', 
+  args: ['set', 'image', 'deployment/nginx-gateway', 
          'nginx=gcr.io/$PROJECT_ID/nginx:$COMMIT_SHA']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
