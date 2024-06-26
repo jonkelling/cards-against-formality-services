@@ -2,10 +2,14 @@ import { Service, ServiceBroker, Context, NodeHealthStatus, Errors } from 'molec
 import admin from 'firebase-admin';
 import dbMixin from '@cards-against-formality/db-mixin';
 import CacheCleaner from '@cards-against-formality/cache-clean-mixin';
+import fs from 'fs';
 
 // import serviceAccount from '../../../secrets/auth.json';
 
 const serviceAccountPath = process.env.GCP_SERVICE_ACCOUNT_PATH || '/secrets/auth.json';
+if (!fs.existsSync(serviceAccountPath)) {
+  throw new Error('Service account file not found');
+}
 const serviceAccount = require(serviceAccountPath);
 
 /**

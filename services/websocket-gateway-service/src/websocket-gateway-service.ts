@@ -6,6 +6,8 @@ import { createAdapter } from 'socket.io-redis';
 import { Server } from 'socket.io';
 import admin from 'firebase-admin';
 import CacheCleaner from '@cards-against-formality/cache-clean-mixin';
+import fs from 'fs';
+
 
 // import serviceAccount from '../../../secrets/auth.json';
 import DefaultNamespace from './DefaultNamespace';
@@ -13,6 +15,9 @@ import GameNamespace from './GameNamespace';
 import RoomsNamespace from './RoomsNamespace';
 
 const serviceAccountPath = process.env.GCP_SERVICE_ACCOUNT_PATH || '/secrets/auth.json';
+if (!fs.existsSync(serviceAccountPath)) {
+  throw new Error(`Service account file not found at ${serviceAccountPath}`);
+}
 const serviceAccount = require(serviceAccountPath);
 
 
