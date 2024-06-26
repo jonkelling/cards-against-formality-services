@@ -3,7 +3,10 @@ import admin from 'firebase-admin';
 import dbMixin from '@cards-against-formality/db-mixin';
 import CacheCleaner from '@cards-against-formality/cache-clean-mixin';
 
-import serviceAccount from '../../../secrets/auth.json';
+// import serviceAccount from '../../../secrets/auth.json';
+
+const serviceAccountPath = process.env.GCP_SERVICE_ACCOUNT_PATH || '/secrets/auth.json';
+const serviceAccount = require(serviceAccountPath);
 
 /**
  * Interface that represents the Client object.

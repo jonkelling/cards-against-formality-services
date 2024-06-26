@@ -41,6 +41,8 @@ spec:
                 secretKeyRef:
                   name: app-auth
                   key: jwtSecret
+            - name: GCP_SERVICE_ACCOUNT_PATH
+              value: /secrets/auth.json
           ports:
             - containerPort: 80
           resources:

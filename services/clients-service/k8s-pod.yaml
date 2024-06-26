@@ -19,9 +19,9 @@ spec:
         - name: clients-service
           image: clients-service
           volumeMounts:
-          - name: firebase-auth
-            mountPath: /secrets
-            readOnly: true
+            - name: firebase-auth
+              mountPath: /secrets
+              readOnly: true
           livenessProbe:
             httpGet:
               path: /live
@@ -43,6 +43,8 @@ spec:
                 secretKeyRef:
                   name: app-auth
                   key: jwtSecret
+            - name: GCP_SERVICE_ACCOUNT_PATH
+              value: /secrets/auth.json
           resources:
             requests:
               cpu: 40m
