@@ -34,7 +34,8 @@
     "jsonwebtoken": "^8.5.1",
     "moleculer": "^0.14.11",
     "moleculer-web": "^0.9.1",
-    "nats": "^1.4.0"
+    "nats": "^1.4.0",
+    "redlock": "^4.2.0"
   },
   "engines": {
     "node": ">= 8.x.x"
