@@ -37,7 +37,7 @@ const broker = new ServiceBroker({
       }
     }
   },
-  transporter: process.env.TRANSPORTER_URI,
+  transporter: "NATS", //process.env.TRANSPORTER_URI,
   circuitBreaker,
   retryPolicy,
   registry
