@@ -29,6 +29,8 @@ spec:
           envFrom:
             - configMapRef:
                 name: base-config
+          ports:
+            - containerPort: 80
           env:
             - name: PORT
               value: "80"
