@@ -18,6 +18,10 @@ spec:
       containers:
         - name: web-gateway-service
           image: web-gateway-service
+          volumeMounts:
+            - name: firebase-auth
+              mountPath: /secrets
+              readOnly: true
           livenessProbe:
             httpGet:
               path: /live
@@ -47,3 +51,9 @@ spec:
             limits:
               cpu: 70m
       restartPolicy: Always
+      volumes:
+      - name: firebase-auth
+        secret:
+          secretName: firebase-auth
+      restartPolicy: Always
+

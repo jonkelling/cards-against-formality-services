@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: nginx-gateway
-          image: nginx-gateway
+          image: nginx-gateway:latest
           ports:
             - containerPort: 80
           resources:
