@@ -6,6 +6,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
     cert-manager.io/cluster-issuer: letsencrypt
 spec:
+  ingressClassName: nginx
   tls:
   - hosts:
     - api.jonagainsthumanity.com
@@ -18,6 +19,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: cardsah
+            name: web-gateway-service
             port:
               number: 80
