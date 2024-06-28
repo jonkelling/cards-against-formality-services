@@ -83,18 +83,18 @@ export default class WebGatewayService extends Service {
             compression(),
             cookieParser(),
           ],
+          actions: {
+            test: {
+              rest: 'GET /test',
+              handler: (req, res) => {
+                res.send({result: 'Hello World'});
+              }
+            } 
+          },
           routes: [
             {
               path: '/api',
               authorization: true,
-              actions: {
-                test: {
-                  rest: 'GET /test',
-                  handler: (req, res) => {
-                    res.send({result: 'Hello World'});
-                  }
-                } 
-              },
               aliases: {
                 'PUT /logout': 'clients.logout',
                 'PUT /login/renew': 'clients.renew',
