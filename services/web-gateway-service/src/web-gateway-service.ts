@@ -91,7 +91,7 @@ export default class WebGatewayService extends Service {
                 test: {
                   rest: 'GET /test',
                   handler: (req, res) => {
-                    res.send('Hello World');
+                    res.send({result: 'Hello World'});
                   }
                 } 
               },
