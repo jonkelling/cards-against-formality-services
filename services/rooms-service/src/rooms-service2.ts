@@ -16,8 +16,8 @@ export default class RoomsService extends Service {
 
         this.parseServiceSchema({
             name: "rooms",
-            mixins: [DbService],
-            adapter: new MongoDBAdapter(MONGO_URI, MONGO_OPTIONS),
+            // mixins: [DbService],
+            // adapter: new MongoDBAdapter(MONGO_URI, MONGO_OPTIONS),
             collection: "rooms",
             actions: {
                 list: {
@@ -35,6 +35,6 @@ export default class RoomsService extends Service {
     }
 
     private async listRooms(ctx: any) {
-        return this.adapter.find({});
+        return {};//this.adapter.find({});
     }
 }
