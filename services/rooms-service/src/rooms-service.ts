@@ -80,7 +80,7 @@ export default class RoomsService extends Service {
    * @param {ServiceBroker} _broker
    * @memberof RoomsService
    */
-  constructor(_broker: ServiceBroker) {
+  public constructor(_broker: ServiceBroker) {
     super(_broker);
 
     this.parseServiceSchema(
