@@ -94,7 +94,7 @@ export default class RoomsService extends Service {
           ])
         ],
         settings: {
-          port: 8080,
+          port: 80,
           entityValidator: this.validationSchema,
           populates: {
             players: {
