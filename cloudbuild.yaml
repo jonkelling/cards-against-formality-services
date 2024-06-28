@@ -96,11 +96,6 @@ steps:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
 - name: 'gcr.io/cloud-builders/kubectl'
-  args: ['apply', '-f', './services/rooms-service/k8s-svc.yaml']
-  env:
-  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
-- name: 'gcr.io/cloud-builders/kubectl'
   args: ['apply', '-f', './services/nginx/k8s-svc.yaml']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
@@ -168,6 +163,13 @@ steps:
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['set', 'image', 'deployment/websocket-gateway-service', 
          'websocket-gateway-service=gcr.io/$PROJECT_ID/websocket-gateway-service:$COMMIT_SHA']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+
+# apply network policy
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', './services/rooms-mongo/network-policy.yaml']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'

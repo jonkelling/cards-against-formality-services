@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-mongo-access
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+      app: rooms-service
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: rooms-mongo
+    ports:
+    - protocol: TCP
+      port: 27017
