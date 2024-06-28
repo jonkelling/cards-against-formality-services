@@ -65,8 +65,8 @@ broker.errorHandler = (err, info) => {
   throw err; // Throw further
 }
 
-broker.createService(Service);
-// new Service(broker);
+// broker.createService(Service);
+new Service(broker);
 
 broker.start().then(() => {
     console.log('Broker started');
