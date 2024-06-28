@@ -46,4 +46,10 @@ const broker = new ServiceBroker({
 broker.createService(Service);
 // new Service(broker);
 
-broker.start();
+broker.start().then(() => {
+    console.log('Broker started');
+})
+.catch(err => {
+    console.error(err);
+    process.exit(1);
+});
