@@ -1,5 +1,7 @@
 import { ServiceBroker } from 'moleculer';
 import HealthMiddleware from '@cards-against-formality/health-check-mixin';
+import DbService from "moleculer-db";
+import MongoDBAdapter from "moleculer-db-adapter-mongo";
 
 import Service from './rooms-service2';
 
@@ -65,8 +67,35 @@ broker.errorHandler = (err, info) => {
   throw err; // Throw further
 }
 
-const service = new Service(broker);
-broker.createService(service);
+const MONGO_URI = "mongodb://rooms-mongo-mongodb.default.svc.cluster.local:27017/local";
+const MONGO_OPTIONS = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 5000,
+  socketTimeoutMS: 45000,
+};
+
+
+const listRooms = async (ctx: any) => {
+  return broker.services[0].adapter.find({});
+}
+
+// const service = new Service(broker);
+broker.createService({
+  settings: {
+      port: 8080
+  },
+  name: "rooms",
+  mixins: [DbService],
+  adapter: new MongoDBAdapter(MONGO_URI, MONGO_OPTIONS),
+  collection: "rooms",
+  actions: {
+      list: {
+          cache: false,
+          handler: listRooms
+      }
+  }
+});
 
 broker.start().then(() => {
     console.log('Broker started');
