@@ -38,11 +38,32 @@ const broker = new ServiceBroker({
       }
     }
   },
+  tracing: {
+		enabled: true,
+		exporter: {
+			type: "Console", // Console exporter is only for development!
+			options: {
+				// Custom logger
+				logger: null,
+				// Using colors
+				colors: true,
+				// Width of row
+				width: 100,
+				// Gauge width in the row
+				gaugeWidth: 40
+			}
+		}
+	},
   transporter: process.env.TRANSPORTER_URI,
   circuitBreaker,
   retryPolicy,
   registry
 });
+
+broker.errorHandler = (err, info) => {
+  broker.logger.warn("Log the error:", err);
+  throw err; // Throw further
+}
 
 broker.createService(Service);
 // new Service(broker);
