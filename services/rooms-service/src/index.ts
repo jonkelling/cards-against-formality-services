@@ -1,7 +1,7 @@
 import { ServiceBroker } from 'moleculer';
 import HealthMiddleware from '@cards-against-formality/health-check-mixin';
 
-import Service from './rooms-service';
+import Service from './rooms-service2';
 
 const registry = {
   strategy: 'CpuUsage'
