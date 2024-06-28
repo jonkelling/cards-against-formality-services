@@ -18,7 +18,7 @@ export default class RoomsService extends Service {
             name: "rooms",
             // mixins: [DbService],
             // adapter: new MongoDBAdapter(MONGO_URI, MONGO_OPTIONS),
-            collection: "rooms",
+            // collection: "rooms",
             actions: {
                 list: {
                     cache: false,
