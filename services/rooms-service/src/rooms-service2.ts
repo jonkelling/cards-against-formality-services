@@ -27,11 +27,11 @@ export default class RoomsService extends Service {
             }
         });
 
-        this.on("connected", () => this.logger.info("MongoDB adapter connected."));
-        this.on("disconnected", () => {
-            this.logger.warn("MongoDB adapter disconnected. Retrying...");
-            setTimeout(() => this.connect(), 5000);  // Retry connection after 5 seconds
-        });
+        // this.on("connected", () => this.logger.info("MongoDB adapter connected."));
+        // this.on("disconnected", () => {
+        //     this.logger.warn("MongoDB adapter disconnected. Retrying...");
+        //     setTimeout(() => this.connect(), 5000);  // Retry connection after 5 seconds
+        // });
     }
 
     private async listRooms(ctx: any) {
