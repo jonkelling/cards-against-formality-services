@@ -88,7 +88,12 @@ export default class WebGatewayService extends Service {
               path: '/api',
               authorization: true,
               actions: {
-                test: (req, res) => res.send('Hello World')
+                test: {
+                  rest: 'GET /test',
+                  handler: (req, res) => {
+                    res.send('Hello World');
+                  }
+                } 
               },
               aliases: {
                 'PUT /logout': 'clients.logout',
