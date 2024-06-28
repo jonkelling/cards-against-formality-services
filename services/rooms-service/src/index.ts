@@ -24,7 +24,7 @@ const retryPolicy = {
 const broker = new ServiceBroker({
   nodeID: "rooms-service",
   logger: true,
-  middlewares: [HealthMiddleware()],
+  // middlewares: [HealthMiddleware()],
   logLevel: 'info',
   metrics: false,
   cacher: {
