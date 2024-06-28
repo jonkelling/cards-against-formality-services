@@ -37,13 +37,13 @@ const broker = new ServiceBroker({
       }
     }
   },
-  transporter: "NATS", //process.env.TRANSPORTER_URI,
+  transporter: process.env.TRANSPORTER_URI,
   circuitBreaker,
   retryPolicy,
   registry
 });
 
-// broker.createService(Service);
-new Service(broker);
+broker.createService(Service);
+// new Service(broker);
 
 broker.start();
