@@ -43,6 +43,6 @@ const broker = new ServiceBroker({
   registry
 });
 
-new Service(broker);
+broker.createService(Service);
 
 broker.start();
