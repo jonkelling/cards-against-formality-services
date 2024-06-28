@@ -33,7 +33,7 @@ spec:
             - name: PORT
               value: "80"
             - name: MONGO_URI
-              value: mongodb://decks-mongo-mongodb.default.svc.cluster.local:27017
+              value: mongodb://decks-mongo-mongodb.default.svc.cluster.local:27017/local
           resources:
             requests:
               cpu: 40m

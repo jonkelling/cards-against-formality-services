@@ -37,7 +37,7 @@ spec:
             - name: PORT
               value: "80"
             - name: MONGO_URI
-              value: mongodb://clients-mongo-mongodb.default.svc.cluster.local:27017
+              value: mongodb://clients-mongo-mongodb.default.svc.cluster.local:27017/local
             - name: JWT_SECRET
               valueFrom:
                 secretKeyRef:
