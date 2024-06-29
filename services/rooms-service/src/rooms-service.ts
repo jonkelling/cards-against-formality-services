@@ -88,7 +88,7 @@ export default class RoomsService extends Service {
       {
         name: 'rooms',
         mixins: [
-          ApiGatewayService,
+          // ApiGatewayService,
           dbMixin('rooms'),
           CacheCleaner([
             'cache.clean.rooms',

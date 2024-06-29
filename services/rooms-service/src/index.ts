@@ -68,27 +68,7 @@ const broker = new ServiceBroker({
 
 console.log(`transporter: ${process.env.TRANSPORTER_URI}`);
 
-
-// broker.errorHandler = (err, info) => {
-//   broker.logger.warn("Log the error:", err);
-//   throw err; // Throw further
-// }
-
-const MONGO_URI = "mongodb://rooms-mongo-mongodb.default.svc.cluster.local:27017/local";
-const MONGO_OPTIONS = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  serverSelectionTimeoutMS: 5000,
-  socketTimeoutMS: 45000,
-};
-
-
-const listRooms = async (ctx: any) => {
-  return broker.services[0].adapter.find({});
-}
-
 broker.createService(Service);
-// broker.createService(WebGatewayService);
 
 broker.start().then(() => {
     console.log('Broker started');
