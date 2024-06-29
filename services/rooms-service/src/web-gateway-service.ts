@@ -1,4 +1,5 @@
 import { Service, ServiceBroker } from "moleculer";
+import ApiGatewayService from "moleculer-web";
 
 class WebGatewayService extends Service {
     public constructor(broker: ServiceBroker) {
@@ -6,6 +7,7 @@ class WebGatewayService extends Service {
 
         this.parseServiceSchema({
             name: "web-gateway",  // Ensure the name is specified
+            mixins: [ApiGatewayService],
             actions: {
                 list: this.callRoomsList,
             }

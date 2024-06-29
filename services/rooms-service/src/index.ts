@@ -29,7 +29,6 @@ const broker = new ServiceBroker({
   nodeID: "rooms-service",
   logger: true,
   middlewares: [
-    ApiGateway,
     HealthMiddleware()],
   logLevel: 'info',
   metrics: false,
