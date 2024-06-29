@@ -82,19 +82,17 @@ const listRooms = async (ctx: any) => {
 
 // const service = new Service(broker);
 broker.createService({
-  settings: {
-      port: 8080
-  },
-  name: "rooms",
+  name: "rooms-svc",
   // mixins: [DbService],
   // adapter: new MongoDBAdapter(MONGO_URI, MONGO_OPTIONS),
   // collection: "rooms",
   actions: {
       list: {
           cache: false,
-          handler: (ctx) => {
+          handler(ctx) {
+            // return this.adapter.find({});
             return {result: 'Hello World'};
-          }
+        }
       }
   }
 });
