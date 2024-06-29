@@ -15,9 +15,6 @@ export default class RoomsService extends Service {
         super(broker);
 
         this.parseServiceSchema({
-            settings: {
-                port: 8080
-            },
             name: "rooms",
             mixins: [DbService],
             adapter: new MongoDBAdapter(MONGO_URI, MONGO_OPTIONS),

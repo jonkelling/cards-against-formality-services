@@ -1,10 +1,7 @@
 import { ServiceBroker } from 'moleculer';
 import HealthMiddleware from '@cards-against-formality/health-check-mixin';
-import ApiGateway from 'moleculer-web';
-import DbService from "moleculer-db";
-import MongoDBAdapter from "moleculer-db-adapter-mongo";
 
-import Service from './rooms-service2';
+import Service from './rooms-service';
 import WebGatewayService from './web-gateway-service';
 
 const registry = {
