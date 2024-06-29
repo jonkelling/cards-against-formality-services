@@ -40,7 +40,7 @@ const broker = new ServiceBroker({
       }
     }
   },
-  transporter: 'NATS',
+  transporter: 'nats://nats-client.default.svc.cluster.local:4222',
   circuitBreaker,
   retryPolicy,
   registry
