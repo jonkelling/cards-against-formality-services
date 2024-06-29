@@ -1,6 +1,7 @@
 import { Service, ServiceBroker, Context, NodeHealthStatus } from 'moleculer';
 import dbMixin from '@cards-against-formality/db-mixin';
 import CacheCleaner from '@cards-against-formality/cache-clean-mixin';
+import ApiGatewayService from 'moleculer-web';
 
 /**
  * CardsService acts as a data store with a transactional outbox, for playing cards.
@@ -36,6 +37,7 @@ export default class CardsService extends Service {
       {
         name: 'cards',
         mixins: [
+          ApiGatewayService,
           dbMixin('cards'),
           CacheCleaner([
             'cache.clean.cards'

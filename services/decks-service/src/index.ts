@@ -37,12 +37,13 @@ const broker = new ServiceBroker({
       }
     }
   },
-  transporter: process.env.TRANSPORTER_URI,
+  transporter: 'nats://nats-client.default.svc.cluster.local:4222',
+  // transporter: process.env.TRANSPORTER_URI,
   circuitBreaker,
   retryPolicy,
   registry
 });
 
-new Service(broker);
+broker.createService(Service);
 
 broker.start();

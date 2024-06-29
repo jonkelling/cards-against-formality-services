@@ -2,6 +2,7 @@ import { Service, ServiceBroker, Context, NodeHealthStatus } from 'moleculer';
 
 import dbMixin from '@cards-against-formality/db-mixin';
 import CacheCleaner from '@cards-against-formality/cache-clean-mixin';
+import ApiGatewayService from 'moleculer-web';
 
 /**
  * Decks Service handles collating a set of cards in a deck structure.
@@ -37,6 +38,7 @@ export default class DecksService extends Service {
       {
         name: 'decks',
         mixins: [
+          ApiGatewayService,
           dbMixin('decks'),
           CacheCleaner([
             'cache.clean.decks',

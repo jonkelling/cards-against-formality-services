@@ -1,33 +1,33 @@
 steps:
-# - name: 'gcr.io/cloud-builders/docker'
-#   args: ['build', '-t', 'gcr.io/$PROJECT_ID/admin-gateway-service:$COMMIT_SHA', '-f', './services/admin-gateway-service/Dockerfile', './services/admin-gateway-service']
-# - name: 'gcr.io/cloud-builders/docker'
-#   args: ['push', 'gcr.io/$PROJECT_ID/admin-gateway-service:$COMMIT_SHA']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/admin-gateway-service:$COMMIT_SHA', '-f', './services/admin-gateway-service/Dockerfile', './services/admin-gateway-service']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/$PROJECT_ID/admin-gateway-service:$COMMIT_SHA']
 
-# - name: 'gcr.io/cloud-builders/docker'
-#   args: ['build', '-t', 'gcr.io/$PROJECT_ID/cards-service:$COMMIT_SHA', '-f', './services/cards-service/Dockerfile', './services/cards-service']
-# - name: 'gcr.io/cloud-builders/docker'
-#   args: ['push', 'gcr.io/$PROJECT_ID/cards-service:$COMMIT_SHA']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/cards-service:$COMMIT_SHA', '-f', './services/cards-service/Dockerfile', './services/cards-service']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/$PROJECT_ID/cards-service:$COMMIT_SHA']
 
-# - name: 'gcr.io/cloud-builders/docker'
-#   args: ['build', '-t', 'gcr.io/$PROJECT_ID/clients-service:$COMMIT_SHA', '-f', './services/clients-service/Dockerfile', './services/clients-service']
-# - name: 'gcr.io/cloud-builders/docker'
-#   args: ['push', 'gcr.io/$PROJECT_ID/clients-service:$COMMIT_SHA']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/clients-service:$COMMIT_SHA', '-f', './services/clients-service/Dockerfile', './services/clients-service']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/$PROJECT_ID/clients-service:$COMMIT_SHA']
 
-# - name: 'gcr.io/cloud-builders/docker'
-#   args: ['build', '-t', 'gcr.io/$PROJECT_ID/decks-service:$COMMIT_SHA', '-f', './services/decks-service/Dockerfile', './services/decks-service']
-# - name: 'gcr.io/cloud-builders/docker'
-#   args: ['push', 'gcr.io/$PROJECT_ID/decks-service:$COMMIT_SHA']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/decks-service:$COMMIT_SHA', '-f', './services/decks-service/Dockerfile', './services/decks-service']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/$PROJECT_ID/decks-service:$COMMIT_SHA']
 
-# - name: 'gcr.io/cloud-builders/docker'
-#   args: ['build', '-t', 'gcr.io/$PROJECT_ID/games-service:$COMMIT_SHA', '-f', './services/games-service/Dockerfile', './services/games-service']
-# - name: 'gcr.io/cloud-builders/docker'
-#   args: ['push', 'gcr.io/$PROJECT_ID/games-service:$COMMIT_SHA']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/games-service:$COMMIT_SHA', '-f', './services/games-service/Dockerfile', './services/games-service']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/$PROJECT_ID/games-service:$COMMIT_SHA']
 
-# - name: 'gcr.io/cloud-builders/docker'
-#   args: ['build', '-t', 'gcr.io/$PROJECT_ID/nginx-gateway:$COMMIT_SHA', '-f', './services/nginx/Dockerfile', './services/nginx']
-# - name: 'gcr.io/cloud-builders/docker'
-#   args: ['push', 'gcr.io/$PROJECT_ID/nginx-gateway:$COMMIT_SHA']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/nginx-gateway:$COMMIT_SHA', '-f', './services/nginx/Dockerfile', './services/nginx']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/$PROJECT_ID/nginx-gateway:$COMMIT_SHA']
 
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/$PROJECT_ID/rooms-service:$COMMIT_SHA', '-f', './services/rooms-service/Dockerfile', './services/rooms-service']
@@ -39,42 +39,42 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/$PROJECT_ID/web-gateway-service:$COMMIT_SHA']
 
-# - name: 'gcr.io/cloud-builders/docker'
-#   args: ['build', '-t', 'gcr.io/$PROJECT_ID/websocket-gateway-service:$COMMIT_SHA', '-f', './services/websocket-gateway-service/Dockerfile', './services/websocket-gateway-service']
-# - name: 'gcr.io/cloud-builders/docker'
-#   args: ['push', 'gcr.io/$PROJECT_ID/websocket-gateway-service:$COMMIT_SHA']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/websocket-gateway-service:$COMMIT_SHA', '-f', './services/websocket-gateway-service/Dockerfile', './services/websocket-gateway-service']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/$PROJECT_ID/websocket-gateway-service:$COMMIT_SHA']
 
 
-# - name: 'gcr.io/cloud-builders/kubectl'
-#   args: ['apply', '-f', './services/admin-gateway-service/k8s-pod.yaml']
-#   env:
-#   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-#   - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
-# - name: 'gcr.io/cloud-builders/kubectl'
-#   args: ['apply', '-f', './services/cards-service/k8s-pod.yaml']
-#   env:
-#   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-#   - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
-# - name: 'gcr.io/cloud-builders/kubectl'
-#   args: ['apply', '-f', './services/clients-service/k8s-pod.yaml']
-#   env:
-#   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-#   - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
-# - name: 'gcr.io/cloud-builders/kubectl'
-#   args: ['apply', '-f', './services/decks-service/k8s-pod.yaml']
-#   env:
-#   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-#   - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
-# - name: 'gcr.io/cloud-builders/kubectl'
-#   args: ['apply', '-f', './services/games-service/k8s-pod.yaml']
-#   env:
-#   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-#   - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
-# - name: 'gcr.io/cloud-builders/kubectl'
-#   args: ['apply', '-f', './services/nginx/k8s-pod.yaml']
-#   env:
-#   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-#   - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', './services/admin-gateway-service/k8s-pod.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', './services/cards-service/k8s-pod.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', './services/clients-service/k8s-pod.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', './services/decks-service/k8s-pod.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', './services/games-service/k8s-pod.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', './services/nginx/k8s-pod.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['apply', '-f', './services/rooms-service/k8s-pod.yaml']
   env:
@@ -85,74 +85,74 @@ steps:
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
-# - name: 'gcr.io/cloud-builders/kubectl'
-#   args: ['apply', '-f', './services/websocket-gateway-service/k8s-pod.yaml']
-#   env:
-#   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-#   - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
-# - name: 'gcr.io/cloud-builders/kubectl'
-#   args: ['apply', '-f', './services/admin-gateway-service/k8s-svc.yaml']
-#   env:
-#   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-#   - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', './services/websocket-gateway-service/k8s-pod.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', './services/admin-gateway-service/k8s-svc.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
 # - name: 'gcr.io/cloud-builders/kubectl'
 #   args: ['apply', '-f', './services/rooms-service/k8s-svc.yaml']
 #   env:
 #   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
 #   - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
-# - name: 'gcr.io/cloud-builders/kubectl'
-#   args: ['apply', '-f', './services/nginx/k8s-svc.yaml']
-#   env:
-#   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-#   - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', './services/nginx/k8s-svc.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['apply', '-f', './services/web-gateway-service/k8s-svc.yaml']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
-# - name: 'gcr.io/cloud-builders/kubectl'
-#   args: ['apply', '-f', './services/websocket-gateway-service/k8s-svc.yaml']
-#   env:
-#   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-#   - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', './services/websocket-gateway-service/k8s-svc.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
   
 # Update Kubernetes deployments with new images
-# - name: 'gcr.io/cloud-builders/kubectl'
-#   args: ['set', 'image', 'deployment/admin-gateway-service', 
-#          'admin-gateway-service=gcr.io/$PROJECT_ID/admin-gateway-service:$COMMIT_SHA']
-#   env:
-#   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-#   - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
-# - name: 'gcr.io/cloud-builders/kubectl'
-#   args: ['set', 'image', 'deployment/cards-service', 
-#          'cards-service=gcr.io/$PROJECT_ID/cards-service:$COMMIT_SHA']
-#   env:
-#   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-#   - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
-# - name: 'gcr.io/cloud-builders/kubectl'
-#   args: ['set', 'image', 'deployment/clients-service', 
-#          'clients-service=gcr.io/$PROJECT_ID/clients-service:$COMMIT_SHA']
-#   env:
-#   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-#   - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
-# - name: 'gcr.io/cloud-builders/kubectl'
-#   args: ['set', 'image', 'deployment/decks-service', 
-#          'decks-service=gcr.io/$PROJECT_ID/decks-service:$COMMIT_SHA']
-#   env:
-#   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-#   - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
-# - name: 'gcr.io/cloud-builders/kubectl'
-#   args: ['set', 'image', 'deployment/games-service', 
-#          'games-service=gcr.io/$PROJECT_ID/games-service:$COMMIT_SHA']
-#   env:
-#   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-#   - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
-# - name: 'gcr.io/cloud-builders/kubectl'
-#   args: ['set', 'image', 'deployment/nginx-gateway', 
-#          'nginx-gateway=gcr.io/$PROJECT_ID/nginx-gateway:$COMMIT_SHA']
-#   env:
-#   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-#   - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['set', 'image', 'deployment/admin-gateway-service', 
+         'admin-gateway-service=gcr.io/$PROJECT_ID/admin-gateway-service:$COMMIT_SHA']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['set', 'image', 'deployment/cards-service', 
+         'cards-service=gcr.io/$PROJECT_ID/cards-service:$COMMIT_SHA']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['set', 'image', 'deployment/clients-service', 
+         'clients-service=gcr.io/$PROJECT_ID/clients-service:$COMMIT_SHA']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['set', 'image', 'deployment/decks-service', 
+         'decks-service=gcr.io/$PROJECT_ID/decks-service:$COMMIT_SHA']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['set', 'image', 'deployment/games-service', 
+         'games-service=gcr.io/$PROJECT_ID/games-service:$COMMIT_SHA']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['set', 'image', 'deployment/nginx-gateway', 
+         'nginx-gateway=gcr.io/$PROJECT_ID/nginx-gateway:$COMMIT_SHA']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['set', 'image', 'deployment/rooms-service', 
          'rooms-service=gcr.io/$PROJECT_ID/rooms-service:$COMMIT_SHA']
@@ -165,12 +165,12 @@ steps:
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
-# - name: 'gcr.io/cloud-builders/kubectl'
-#   args: ['set', 'image', 'deployment/websocket-gateway-service', 
-#          'websocket-gateway-service=gcr.io/$PROJECT_ID/websocket-gateway-service:$COMMIT_SHA']
-#   env:
-#   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-#   - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['set', 'image', 'deployment/websocket-gateway-service', 
+         'websocket-gateway-service=gcr.io/$PROJECT_ID/websocket-gateway-service:$COMMIT_SHA']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
 
 # apply network policy
 - name: 'gcr.io/cloud-builders/kubectl'
@@ -180,15 +180,15 @@ steps:
   - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
 
 images:
-# - 'gcr.io/$PROJECT_ID/admin-gateway-service:$COMMIT_SHA'
-# - 'gcr.io/$PROJECT_ID/cards-service:$COMMIT_SHA'
-# - 'gcr.io/$PROJECT_ID/clients-service:$COMMIT_SHA'
-# - 'gcr.io/$PROJECT_ID/decks-service:$COMMIT_SHA'
-# - 'gcr.io/$PROJECT_ID/games-service:$COMMIT_SHA'
-# - 'gcr.io/$PROJECT_ID/nginx-gateway:$COMMIT_SHA'
+- 'gcr.io/$PROJECT_ID/admin-gateway-service:$COMMIT_SHA'
+- 'gcr.io/$PROJECT_ID/cards-service:$COMMIT_SHA'
+- 'gcr.io/$PROJECT_ID/clients-service:$COMMIT_SHA'
+- 'gcr.io/$PROJECT_ID/decks-service:$COMMIT_SHA'
+- 'gcr.io/$PROJECT_ID/games-service:$COMMIT_SHA'
+- 'gcr.io/$PROJECT_ID/nginx-gateway:$COMMIT_SHA'
 - 'gcr.io/$PROJECT_ID/rooms-service:$COMMIT_SHA'
 - 'gcr.io/$PROJECT_ID/web-gateway-service:$COMMIT_SHA'
-# - 'gcr.io/$PROJECT_ID/websocket-gateway-service:$COMMIT_SHA'
+- 'gcr.io/$PROJECT_ID/websocket-gateway-service:$COMMIT_SHA'
 
 options:
   defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET

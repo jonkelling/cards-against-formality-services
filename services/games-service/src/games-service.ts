@@ -3,6 +3,7 @@ import CacheCleaner from '@cards-against-formality/cache-clean-mixin';
 import dbMixin from '@cards-against-formality/db-mixin';
 
 import Game, { Room, GameInterface } from './game';
+import ApiGatewayService from 'moleculer-web';
 
 export default class GameService extends Service {
 
@@ -15,6 +16,7 @@ export default class GameService extends Service {
       {
         name: 'games',
         mixins: [
+          ApiGatewayService,
           dbMixin('games'),
           CacheCleaner([
             'cache.clean.games',

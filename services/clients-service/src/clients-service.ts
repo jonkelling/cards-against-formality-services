@@ -3,6 +3,7 @@ import admin from 'firebase-admin';
 import dbMixin from '@cards-against-formality/db-mixin';
 import CacheCleaner from '@cards-against-formality/cache-clean-mixin';
 import fs from 'fs';
+import ApiGatewayService from 'moleculer-web';
 
 // import serviceAccount from '../../../secrets/auth.json';
 
@@ -80,6 +81,7 @@ export default class ClientsService extends Service {
       {
         name: 'clients',
         mixins: [
+          ApiGatewayService,
           dbMixin('clients'),
           CacheCleaner([
             'cache.cleaner.clients'
@@ -301,7 +303,7 @@ export default class ClientsService extends Service {
    */
   private async onRoomLeave(ctx: Context<{ clientId: string; roomId: string }>) {
     const { clientId, roomId } = ctx.params;
-    const count = await ctx.call(`${this.name}.count`, { query: { _id: clientId, roomId } });
+    const count: number = await ctx.call(`${this.name}.count`, { query: { _id: clientId, roomId } });
     if (count <= 0) {
       this.logger.warn('Client tried to leave a room its no longer in', { clientId, roomId });
       return;
