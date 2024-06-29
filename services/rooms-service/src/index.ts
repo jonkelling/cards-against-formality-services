@@ -86,13 +86,15 @@ broker.createService({
       port: 8080
   },
   name: "rooms",
-  mixins: [DbService],
-  adapter: new MongoDBAdapter(MONGO_URI, MONGO_OPTIONS),
-  collection: "rooms",
+  // mixins: [DbService],
+  // adapter: new MongoDBAdapter(MONGO_URI, MONGO_OPTIONS),
+  // collection: "rooms",
   actions: {
       list: {
           cache: false,
-          handler: listRooms
+          handler: (ctx) => {
+            return {result: 'Hello World'};
+          }
       }
   }
 });
