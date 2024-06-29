@@ -12,6 +12,8 @@ if (!fs.existsSync(serviceAccountPath)) {
   throw new Error('Service account file not found');
 }
 const serviceAccount = require(serviceAccountPath);
+console.log(`Service account loaded from: ${serviceAccountPath} ${serviceAccount.project_id} ${serviceAccount}`);
+
 
 /**
  * Interface that represents the Client object.
