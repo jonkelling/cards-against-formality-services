@@ -1,5 +1,6 @@
 import { ServiceBroker } from 'moleculer';
 import HealthMiddleware from '@cards-against-formality/health-check-mixin';
+import ApiGateway from 'moleculer-web';
 import DbService from "moleculer-db";
 import MongoDBAdapter from "moleculer-db-adapter-mongo";
 
@@ -27,7 +28,9 @@ const retryPolicy = {
 const broker = new ServiceBroker({
   nodeID: "rooms-service",
   logger: true,
-  middlewares: [HealthMiddleware()],
+  middlewares: [
+    ApiGateway,
+    HealthMiddleware()],
   logLevel: 'info',
   metrics: false,
   cacher: {
