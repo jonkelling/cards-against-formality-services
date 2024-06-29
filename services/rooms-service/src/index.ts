@@ -63,6 +63,9 @@ const broker = new ServiceBroker({
   registry
 });
 
+console.log(`transporter: ${process.env.TRANSPORTER_URI}`);
+
+
 // broker.errorHandler = (err, info) => {
 //   broker.logger.warn("Log the error:", err);
 //   throw err; // Throw further
@@ -83,23 +86,6 @@ const listRooms = async (ctx: any) => {
 
 broker.createService(Service);
 broker.createService(WebGatewayService);
-
-// const service = new Service(broker);
-// broker.createService({
-//   name: "rooms-svc",
-//   // mixins: [DbService],
-//   // adapter: new MongoDBAdapter(MONGO_URI, MONGO_OPTIONS),
-//   // collection: "rooms",
-//   actions: {
-//       list: {
-//           cache: false,
-//           handler(ctx) {
-//             // return this.adapter.find({});
-//             return {result: 'Hello World'};
-//         }
-//       }
-//   }
-// });
 
 broker.start().then(() => {
     console.log('Broker started');
