@@ -84,7 +84,7 @@ const listRooms = async (ctx: any) => {
 }
 
 broker.createService(Service);
-broker.createService(WebGatewayService);
+// broker.createService(WebGatewayService);
 
 broker.start().then(() => {
     console.log('Broker started');

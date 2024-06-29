@@ -2,6 +2,7 @@ import { Service, ServiceBroker, Context, NodeHealthStatus, Errors } from 'molec
 import { forbidden } from 'boom';
 import dbMixin from '@cards-against-formality/db-mixin';
 import CacheCleaner from '@cards-against-formality/cache-clean-mixin';
+import ApiGatewayService from 'moleculer-web';
 
 /**
  * Status is an enumerated value to indicate the status of the room.
@@ -87,6 +88,7 @@ export default class RoomsService extends Service {
       {
         name: 'rooms',
         mixins: [
+          ApiGatewayService,
           dbMixin('rooms'),
           CacheCleaner([
             'cache.clean.rooms',
