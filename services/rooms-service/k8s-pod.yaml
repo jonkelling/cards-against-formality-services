@@ -36,6 +36,8 @@ spec:
               value: "80"
             - name: MONGO_URI
               value: mongodb://rooms-mongo-mongodb.default.svc.cluster.local:27017/local
+            - name: TRANSPORTER_URI
+              value:
           resources:
             requests:
               cpu: 40m
