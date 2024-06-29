@@ -4,6 +4,7 @@ import DbService from "moleculer-db";
 import MongoDBAdapter from "moleculer-db-adapter-mongo";
 
 import Service from './rooms-service2';
+import WebGatewayService from './web-gateway-service';
 
 const registry = {
   strategy: 'CpuUsage'
@@ -62,10 +63,10 @@ const broker = new ServiceBroker({
   registry
 });
 
-broker.errorHandler = (err, info) => {
-  broker.logger.warn("Log the error:", err);
-  throw err; // Throw further
-}
+// broker.errorHandler = (err, info) => {
+//   broker.logger.warn("Log the error:", err);
+//   throw err; // Throw further
+// }
 
 const MONGO_URI = "mongodb://rooms-mongo-mongodb.default.svc.cluster.local:27017/local";
 const MONGO_OPTIONS = {
@@ -80,22 +81,25 @@ const listRooms = async (ctx: any) => {
   return broker.services[0].adapter.find({});
 }
 
+broker.createService(Service);
+broker.createService(WebGatewayService);
+
 // const service = new Service(broker);
-broker.createService({
-  name: "rooms-svc",
-  // mixins: [DbService],
-  // adapter: new MongoDBAdapter(MONGO_URI, MONGO_OPTIONS),
-  // collection: "rooms",
-  actions: {
-      list: {
-          cache: false,
-          handler(ctx) {
-            // return this.adapter.find({});
-            return {result: 'Hello World'};
-        }
-      }
-  }
-});
+// broker.createService({
+//   name: "rooms-svc",
+//   // mixins: [DbService],
+//   // adapter: new MongoDBAdapter(MONGO_URI, MONGO_OPTIONS),
+//   // collection: "rooms",
+//   actions: {
+//       list: {
+//           cache: false,
+//           handler(ctx) {
+//             // return this.adapter.find({});
+//             return {result: 'Hello World'};
+//         }
+//       }
+//   }
+// });
 
 broker.start().then(() => {
     console.log('Broker started');
