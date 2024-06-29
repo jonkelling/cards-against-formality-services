@@ -2,6 +2,9 @@ import { ServiceBroker } from 'moleculer';
 import HealthMiddleware from '@cards-against-formality/health-check-mixin';
 
 import Service from './web-gateway-service';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const registry = {
   strategy: 'CpuUsage'

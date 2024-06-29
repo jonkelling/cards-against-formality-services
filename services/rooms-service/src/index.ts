@@ -4,6 +4,10 @@ import HealthMiddleware from '@cards-against-formality/health-check-mixin';
 import Service from './rooms-service';
 import WebGatewayService from './web-gateway-service';
 
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 const registry = {
   strategy: 'CpuUsage'
 };
