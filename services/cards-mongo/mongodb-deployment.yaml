@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: cards-mongo
+  labels:
+    app: cards-mongo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cards-mongo
+  template:
+    metadata:
+      labels:
+        app: cards-mongo
+    spec:
+      containers:
+      - name: mongo
+        image: mongo:latest
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+        - name: mongo-persistent-storage
+          mountPath: /data/db
+  volumeClaimTemplates:
+  - metadata:
+      name: mongo-persistent-storage
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 5Gi
