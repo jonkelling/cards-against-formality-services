@@ -2,6 +2,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: clients-mongo-mongodb
+  labels:
+    app: cards-mongo
 spec:
   selector:
     app: clients-mongo
