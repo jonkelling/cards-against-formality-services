@@ -5,7 +5,8 @@ metadata:
   labels:
     app: decks-mongo
 spec:
-  replicas: 3
+  serviceName: "decks-mongo-mongodb"
+  replicas: 1
   selector:
     matchLabels:
       app: decks-mongo
