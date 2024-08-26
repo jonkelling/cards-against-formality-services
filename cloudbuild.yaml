@@ -94,7 +94,7 @@ steps:
   args: ['apply', '-f', './services/admin-gateway-service/k8s-svc.yaml']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cards-against-formality-cluster' 
 # - name: 'gcr.io/cloud-builders/kubectl'
 #   args: ['apply', '-f', './services/rooms-service/k8s-svc.yaml']
 #   env:
